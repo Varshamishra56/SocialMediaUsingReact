@@ -7,6 +7,12 @@ import CreatePost from "./Components/CreatePost";
 import PostList from "./Components/PostList";
 import { useState } from "react";
 import PostListProvider from "./Store/post-list-store";
+import Settings from "./Components/Settings";
+import Notifications from "./Components/Notifications";
+import React from "react";
+import ReactDOM from "react-dom";
+import BlogPost from "./Components/BlogPost";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Create Post");
@@ -19,12 +25,12 @@ function App() {
         ></SideBar>
         <div className="content">
           <Header></Header>
-          {selectedTab === "Home" ? (
-            <PostList></PostList>
-          ) : (
-            <CreatePost></CreatePost>
-          )}
+        
 
+          {selectedTab === "Home" && <BlogPost />}
+          {selectedTab === "Create Post" && <CreatePost></CreatePost>}
+          {selectedTab === "Notification" && <Notifications></Notifications>}
+          {selectedTab === "Settings" && <Settings></Settings>}
           <Footer></Footer>
         </div>
       </div>
