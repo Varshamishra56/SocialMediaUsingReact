@@ -43,7 +43,7 @@ const SideBar = ({ selectedTab, setSelectedTab }) => {
               Create Post
             </a>
           </li>
-          <li onClick={() => setSelectedTab("Notification")}>
+          <li onClick={() => setSelectedTab("Notification")} lass="btn btn-primary">
             <a
               href="#"
               className={`nav-link text-white ${
@@ -53,7 +53,8 @@ const SideBar = ({ selectedTab, setSelectedTab }) => {
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#grid"></use>
               </svg>
-              Notification
+                Notifications <span class="badge badge-light">4</span>
+              
             </a>
           </li>
           <li onClick={() => setSelectedTab("Settings")}>

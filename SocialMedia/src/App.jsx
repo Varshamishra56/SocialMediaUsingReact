@@ -10,12 +10,11 @@ import PostListProvider from "./Store/post-list-store";
 import Settings from "./Components/Settings";
 import Notifications from "./Components/Notifications";
 import React from "react";
-import ReactDOM from "react-dom";
 import BlogPost from "./Components/BlogPost";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [selectedTab, setSelectedTab] = useState("Create Post");
+  const [selectedTab, setSelectedTab] = useState("Home");
   return (
     <PostListProvider>
       <div className="appContainer">
@@ -27,8 +26,8 @@ function App() {
           <Header></Header>
         
 
-          {selectedTab === "Home" && <BlogPost />}
-          {selectedTab === "Create Post" && <CreatePost></CreatePost>}
+          {selectedTab === "Home" && <><BlogPost /> <PostList></PostList></>}
+          {selectedTab === "Create Post" && <CreatePost></CreatePost> }
           {selectedTab === "Notification" && <Notifications></Notifications>}
           {selectedTab === "Settings" && <Settings></Settings>}
           <Footer></Footer>
