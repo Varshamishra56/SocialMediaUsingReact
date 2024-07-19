@@ -1,23 +1,35 @@
+import { useContext } from "react";
 import { MdDelete } from "react-icons/md";
+import { PostList as PostListnew } from "../Store/post-list-store";
 
 const Post = ({ post }) => {
+  const { deletePost } = useContext(PostListnew);
+
   return (
     <>
       {" "}
-      <div className="row mb-2" >
-        <div className="col-md-6 post-card" style={{width:"79%",margin:"16px 8px"}}>
+      <div className="row mb-2">
+        <div
+          className="col-md-6 post-card"
+          style={{ width: "79%", margin: "16px 8px" }}
+        >
           <div className="card flex-md-row mb-4 shadow-sm h-md-250">
             <div className="card-body d-flex flex-column align-items-start">
               <strong className="d-inline-block mb-2 text-primary">
-                World
+                <span className="badge text-bg-info" style={{ fontSize: "15px" }}>
+                  😀Reactions: {post.reactions}
+                </span>
               </strong>
               <h3 className="mb-0">
-                <a className="text-dark" href="#">
+                <a className="text-dark" >
                   {post.title}
-                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  <MdDelete />
-                    <span class="visually-hidden">unread messages</span>
-                  </span>{" "}
+                  <span
+                    className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    onClick={() => deletePost(post.id)}
+                  >
+                    <MdDelete />
+                    <span className="visually-hidden">unread messages</span>
+                  </span>
                 </a>
               </h3>
               <div className="mb-1 text-muted">Nov 12</div>
@@ -25,6 +37,7 @@ const Post = ({ post }) => {
               <div style={{ display: "flex", flexWrap: "nowrap" }}>
                 {post.tags.map((tag) => (
                   <a
+                  key={tag}
                     href="#"
                     className="hashtag"
                     style={{ textDecoration: "none", margin: "2px" }}

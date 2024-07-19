@@ -10,3 +10,11 @@
 .post-card{
     margin: 20px 50px;
 }
+.create-post{
+    margin-left: 60px;
+    margin-top: 50px;
+    width: 70%;
+    border: 5px solid black;
+    border-radius: 5px;
+    text-align: center;
+}

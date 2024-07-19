@@ -53,7 +53,7 @@ const SideBar = ({ selectedTab, setSelectedTab }) => {
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#grid"></use>
               </svg>
-                Notifications <span class="badge badge-light">4</span>
+                Notifications 
               
             </a>
           </li>
